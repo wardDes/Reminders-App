@@ -21,7 +21,7 @@ from os import path
 bundle_dir = path.abspath(path.dirname(__file__))
 path_to_dat = path.join(bundle_dir, "myschedule.dat")
 
-path_to_ico = path.join(bundle_dir, "dh.ico")
+path_to_ico = path.join(bundle_dir, "person-ico.png")
 
 root.geometry("811x626")
 
