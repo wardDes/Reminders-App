@@ -230,6 +230,15 @@ def editItem():# Edit
     
     val = rem_listbx.get(rem_listbx.curselection())# returns tuple
     
+    # update spinboxes with edited reminder item
+    val_lst =val.split(',')
+    rem_hr_min = val_lst[1].split(':')
+    rem_hr=rem_hr_min[0].strip()
+    rem_min=rem_hr_min[1].strip()
+    hrs_spin_var.set(rem_hr)
+    mins_spin_var.set(rem_min)
+    spin_am_pm_var.set(val_lst[2].strip())
+    
     # GET INDEX OF SELECTED ITEm
     idx = rem_listbx.get(0, END).index(val)
     global reminders
