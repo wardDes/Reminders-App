@@ -262,7 +262,7 @@ def editItem():# Edit
 
     #make val into a list and get message from list
     val_lst = val.split(',')
-    msg_str = val_lst[3]
+    msg_str = val_lst[3].strip()
 
     msg_entry.insert(0, msg_str)
     save_reminders()
@@ -408,7 +408,18 @@ def chkMsgDts():
         global toggle
         if (comparedate_plus1 == item_date):
             app_notify()
-           
+    # find items in list box whose datetime
+    # is less than current time and make
+    # appear red
+    count = 0
+    for i in reminders:
+        item_date = i[4]
+        if (item_date < comparedate):
+            rem_listbx.itemconfig(count, fg="red")
+            count+=1
+        else:
+            rem_listbx.itemconfig(count, fg="black")
+            count+= 1         
 
 def note_timer():
     # funtion to check date/times of reminder els
